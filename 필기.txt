@@ -58,3 +58,36 @@ HTML 결과를 자바스크립트를 이용해 웹 브라우저에서 동적으�
 - 주로 동적인 화면에서 사용
 - ex) 구글지도 (드래그 하거나 스크롤해도 주소는 변하지 않음)
 - 관련기술 : 리액트 -> 프론트개발자
+
+
+
+HTTP 요청
+3가지 방식
+
+1. GET - 쿼리 파라미터
+ - ?name="김진수"
+ - 메시지 바디 없이, URL의 쿼리 파라미터에 데이터를 포함해서 전달
+ - content-type = NULL
+ - ex) 검색, 필터, 페이징
+
+2. POST -  HTML Form
+ - content-type = application/x-www-form-urlencoded
+ - 메시지 바디에 쿼리 파라미터로 형식으로 전달 username = hello&age=20
+ - 회원가입, 상품 주문, HTML Form 사용
+
+3. HTTP message body
+ - HTTP API 에서 주로 사용, JSON, XML
+ - 데이터 형식은 주로 JSON
+ - POST, PUT, PATCH
+ - content-type = text.plain	application/json
+
+
+HTTP 응답
+ - HTTP 응답코드 지정			response.setStatus(HttpServletResponse.SC_OK)
+ - 해더, 바디 생성				
+ - Content-type, 쿠키, Redirect		response.setHeader("Content-Type", "text/plain;charset=utf-8")  /  response.setContentType("text/plain")
+					쿠키	Cookie cookie = new Cookie("myCookie", "good")
+						cookie.setMaxAge(600);
+						response.addCookie(cookie)
+
+				리다이랙트	response.sendRedirect("주소~~")
