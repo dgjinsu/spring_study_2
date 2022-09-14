@@ -46,6 +46,8 @@ public class FrontControllerServletV4 extends HttpServlet {
         Map<String, String> paramMap = createParamMap(request); //모든 파라미터 저장
 
         Map<String, Object> model = new HashMap<>();
+
+        //model의 주소값을 넘겨줌 -> 반환받지 않아도 값 넣을 수 있음.
         String viewName = controller.process(paramMap, model);//컨트롤러에 넘겨서 viewName받아옴
 
         MyView view = viewResolver(viewName);//view 완전체 이름
