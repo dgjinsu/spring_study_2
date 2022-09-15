@@ -108,3 +108,19 @@ View : 모델에 담겨있는 데이터를 사용해서 화면에 그리는 일�
 - 요청에 맞는 컨트롤러를 찾아서 호출
 - 프론트 컨트롤러를 제외한 나머지 컨트롤러는 서블릿을 사용하지 않아도 됨.
 - 스프링에선 DispatcherServlet이 FrontController 역할 수행
+
+
+구조
+Dispatcher Servlet -> -> 핸들러 매핑 -> 핸들러 어댑터 목록 -> 핸들러 어댑터 -> 핸들러 호출 ->(Model and View 반환)-> DispatcherServlet
+-> viewResolver ->(View반환)-> View -> 응답
+
+1. 핸들러 조회				: 핸들러 매핑을 통해 요청 URL에 매핑된 핸들러(컨트롤러)를 조회
+2. 핸들러 어댑터 조회			: 핸들러를 실행할 수 있는 어댑터 조회
+3. 핸들러 어댑터 실행
+4. 핸들러 어댑터를 통해 핸들러 실행
+5. ModelAndView 반환
+6. 뷰 리졸버를 통해서 뷰 찾기
+7. View 반환				
+8. 뷰 렌더링
+
+@RequestMapping는 1,2 의 역할을 한다
